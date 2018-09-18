@@ -1,7 +1,6 @@
 package com.example.homework1;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +12,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int EDIT_REQUEST_CODE = 0;
     private static final int REQUEST_ID = 1;
+
     TextView name;
     TextView phone;
     TextView email;
     Button editButton;
     Button sendButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Activity_two.class);
+                Intent intent = new Intent(MainActivity.this, ActivityTwo.class);
                 startActivityForResult(intent, EDIT_REQUEST_CODE);
             }
         });
