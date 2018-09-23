@@ -30,10 +30,10 @@ public class ActivityTwo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent save = new Intent();
-                save.putExtra("name",edit_name.getText().toString());
-                save.putExtra("phone",edit_phone.getText().toString());
-                save.putExtra("email",edit_email.getText().toString());
-                setResult(RESULT_OK,save);
+                save.putExtra("name", edit_name.getText().toString());
+                save.putExtra("phone", edit_phone.getText().toString());
+                save.putExtra("email", edit_email.getText().toString());
+                setResult(RESULT_OK, save);
                 finish();
             }
         });
@@ -41,8 +41,8 @@ public class ActivityTwo extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cancel = new Intent(ActivityTwo.this,MainActivity.class);
-                setResult(RESULT_CANCELED,cancel);
+                Intent cancel = new Intent(ActivityTwo.this, MainActivity.class);
+                setResult(RESULT_CANCELED, cancel);
                 finish();
             }
         });

@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Homework1</string>
-    <string name="name">Name</string>
-    <string name="phone">Phone</string>
-    <string name="email">Email</string>
+    <string name="send">Send</string>
+    <string name="camera">Camera</string>
     <string name="edit">Edit</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="name">Name</string>
+    <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 </resources>

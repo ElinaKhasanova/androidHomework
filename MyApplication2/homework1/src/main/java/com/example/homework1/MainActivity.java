@@ -1,6 +1,10 @@
 package com.example.homework1;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.CalendarContract;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +16,14 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int EDIT_REQUEST_CODE = 0;
     private static final int REQUEST_ID = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     TextView name;
     TextView phone;
     TextView email;
     Button editButton;
     Button sendButton;
+    Button cameraButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         editButton = findViewById(R.id.btn_edit);
         sendButton = findViewById(R.id.btn_send);
+        cameraButton = findViewById(R.id.btn_camera);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +56,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                }
+            }
+        });
     }
 
     @Override
@@ -69,10 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 phone.setText(data.getStringExtra("phone"));
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+            } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             }
         }
-
     }
-
 }
 
