@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="import_item">Import</string>
+    <string name="gallery_item">Gallery</string>
+    <string name="slideshow_item">Slideshow</string>
+    <string name="tools_item">Tools</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel">CANCEL</string>
+    <string name="save">SAVE</string>
+    <string name="login">LOGIN</string>
+    <string name="email">EMAIL</string>
+    <string name="edit">EDIT</string>
+    <string name="textview">TextView</string>
+    <string name="fragmentimport">FragmentImport</string>
+    <string name="fragmentgallery">FragmentGallery</string>
+    <string name="fragmentprofile">FragmentProfile</string>
+
+</resources>
