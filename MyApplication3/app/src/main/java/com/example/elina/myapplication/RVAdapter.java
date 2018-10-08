@@ -1,6 +1,5 @@
 package com.example.elina.myapplication;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +14,11 @@ import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder> {
     CallBack callBack;
+
+    public RVAdapter(CallBack callBack) {
+        this.callBack = callBack;
+    }
+
     private List<Book> books = new ArrayList<>();
 
     class BookViewHolder extends RecyclerView.ViewHolder{
@@ -24,8 +28,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder> {
 
         public BookViewHolder(@NonNull View itemView){
             super(itemView);
-            nameBook = itemView.findViewById(R.id.book_name);
-            descriptionBook = itemView.findViewById(R.id.book_description);
+            nameBook = itemView.findViewById(R.id.text_book_name);
+            descriptionBook = itemView.findViewById(R.id.text_book_description);
             photoBook = itemView.findViewById(R.id.book_photo);
         }
 
@@ -57,7 +61,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder bookViewHolder, int i) {
         bookViewHolder.bind(books.get(i));
-
     }
 
     @Override

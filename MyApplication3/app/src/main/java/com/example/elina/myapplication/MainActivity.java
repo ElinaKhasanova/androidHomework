@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements CallBack {
 
         recyclerView = findViewById(R.id.rc_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        rvAdapter = new RVAdapter();
+        rvAdapter = new RVAdapter(this);
         recyclerView.setAdapter(rvAdapter);
 
         loadList();
@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity implements CallBack {
         books = new ArrayList<>();
         books.add(new Book("Android", "Обучение", R.drawable.kniha));
         books.add(new Book("Война и мир", "Художественная литература", R.drawable.kniha));
-        books.add(new Book("Enlish", "Обучение", R.drawable.kniha));
+        books.add(new Book("English", "Обучение", R.drawable.kniha));
         return books;
     }
 
     @Override
     public void callback(String name, String description) {
-        Intent intent = new Intent(this, ActivityTwo.class);
+        Intent intent = new Intent(this, TwoActivity.class);
         intent.putExtra("name", name);
         intent.putExtra("description",description);
         startActivity(intent);
