@@ -2,7 +2,6 @@ package com.example.elina.bottomnavigation;
 
 import android.support.v7.util.DiffUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookDiffUtil extends DiffUtil.Callback {
@@ -14,20 +13,6 @@ public class BookDiffUtil extends DiffUtil.Callback {
         this.oldList = oldList;
         this.newList = newList;
     }
-
-    public void updateData(ArrayList<Book> newData) {
-
-        BookDiffUtil callback = new
-                BookDiffUtil(newData, data);
-
-        DiffUtil.DiffResult diffResult =
-                DiffUtil.calculateDiff(callback, detectMovie = true);
-
-        diffResult.dispatchUpdatesTo(this);
-        data.clear();
-        data.addAll(newData);
-    }
-
 
     @Override
     public int getOldListSize() {

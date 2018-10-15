@@ -14,7 +14,7 @@ public class PageFragment extends Fragment {
 
     public static PageFragment newInstance(int page) {
         PageFragment fragment = new PageFragment();
-        Bundle args=new Bundle();
+        Bundle args = new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);
         return fragment;
@@ -37,7 +37,7 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result=inflater.inflate(R.layout.fragment_page, container, false);
-        TextView pageHeader=(TextView)result.findViewById(R.id.displayText);
+        TextView pageHeader = result.findViewById(R.id.displayText);
         String header = String.format("Фрагмент № %d", pageNumber + 1);
         pageHeader.setText(header);
         return result;

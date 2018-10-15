@@ -1,6 +1,7 @@
 package com.example.elina.bottomnavigation;
 
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class CVAdapter extends RecyclerView.Adapter<CVAdapter.BookViewHolder> {
@@ -46,9 +46,14 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.BookViewHolder> {
         }
     }
 
-    public void setBooks(Collection<Book> bookObj) {
-        books.addAll(bookObj);
-        notifyDataSetChanged();
+    public void updateData(ArrayList<Book> newData) {
+
+        BookDiffUtil callback = new BookDiffUtil(newData, );
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(callback, true);
+
+        diffResult.dispatchUpdatesTo(this);
+        .clear();
+        .addAll(newData);
     }
 
     @NonNull
