@@ -18,12 +18,12 @@
             android:layout_height="55dp"
             android:background="@android:color/black">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <android.support.design.widget.TabLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
 
                 <Button
-                    android:id="@+id/btn_sort"
+                    android:id="@+id/btn_sort_name"
                     android:layout_width="105dp"
                     android:layout_height="35dp"
                     android:layout_alignParentEnd="true"
@@ -32,8 +32,17 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp" />
 
-            </RelativeLayout>
+                <Button
+                    android:id="@+id/btn_sort_description"
+                    android:layout_width="105dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp" />
 
+            </android.support.design.widget.TabLayout>
         </android.support.v7.widget.Toolbar>
 
         <android.support.v7.widget.RecyclerView
@@ -43,5 +52,4 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

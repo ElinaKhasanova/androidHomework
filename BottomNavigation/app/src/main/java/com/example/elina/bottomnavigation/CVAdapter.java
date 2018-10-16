@@ -21,6 +21,38 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.BookViewHolder> {
 
     private List<Book> books = new ArrayList<>();
 
+    public void updateData(List<Book> newData) {
+
+        BookDiffUtil callback = new BookDiffUtil(newData, books);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(callback, true);
+
+        diffResult.dispatchUpdatesTo(this);
+        books.clear();
+        books.addAll(newData);
+    }
+
+    @NonNull
+    @Override
+    public BookViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
+        return new BookViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull BookViewHolder bookViewHolder, int i) {
+        bookViewHolder.bind(books.get(i));
+    }
+
+    @Override
+    public int getItemCount() {
+        return books.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+    }
+
     class BookViewHolder extends RecyclerView.ViewHolder{
         private TextView nameBook;
         private TextView descriptionBook;
@@ -44,37 +76,5 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.BookViewHolder> {
                 }
             });
         }
-    }
-
-    public void updateData(ArrayList<Book> newData) {
-
-        BookDiffUtil callback = new BookDiffUtil(newData, );
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(callback, true);
-
-        diffResult.dispatchUpdatesTo(this);
-        .clear();
-        .addAll(newData);
-    }
-
-    @NonNull
-    @Override
-    public BookViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
-        return new BookViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BookViewHolder bookViewHolder, int i) {
-        bookViewHolder.bind(books.get(i));
-    }
-
-    @Override
-    public int getItemCount() {
-        return books.size();
-    }
-
-    @Override
-    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
     }
 }
