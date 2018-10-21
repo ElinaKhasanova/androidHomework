@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Clock</string>
+    <string name="hello" />
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
+    <string name="state">State</string>
+    <string name="good_morning">Good morning</string>
+</resources>
