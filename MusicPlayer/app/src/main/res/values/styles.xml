@@ -1,0 +1,19 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme1" parent="TextAppearance.AppCompat">
+        <item name="android:background">#e91e63</item>
+    </style>
+
+    <style name="Theme2" parent="TextAppearance.AppCompat">
+        <item name="android:background">#009688</item>
+    </style>
+
+    <style name="Theme3" parent="TextAppearance.AppCompat">
+        <item name="android:background">#cddc39</item>
+    </style>
+</resources>
