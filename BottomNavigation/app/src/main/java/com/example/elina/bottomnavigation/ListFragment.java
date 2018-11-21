@@ -18,8 +18,11 @@ import org.reactivestreams.Subscription;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+//import java.util.Observable;
 
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
 public class ListFragment extends Fragment {
@@ -65,19 +68,18 @@ public class ListFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sort(List<Book> bookList, Comparator<Book> comparator) {
-        Flowable.fromIterable(bookList)
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+    public void sort(List<Book> bookList, Comparator<Book> comparator){
+        Observable.fromIterable(bookList)
                 .take(12)
                 .sorted(comparator)
-                .map(book -> new Book(book.getId(), book.getName(),
+                .map(book -> new Book(book.getId(), book.getName() + Integer.toString(book.getName().length()),
                         book.getDescription(), book.getPhoto()))
-                .doOnSubscribe(this::showLoading)
                 .toList()
+                .doOnSubscribe(this::showLoading)
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
                 .doAfterTerminate(this::hideLoading)
-                .doOnSuccess(newBooks -> adapter.updateData(newBooks))
-                .subscribe();
+                .subscribe(newBooks -> adapter.updateData(newBooks));
     }
 
     private void showLoading(Subscription subscription) {
